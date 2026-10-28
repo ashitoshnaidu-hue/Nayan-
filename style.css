@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff6f9f;
+  --deep-pink: #c83e72;
+  --text: #66384c;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow: hidden;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #ffe1ec, #fff4e9 55%, #ffd5e5);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 540px);
+  padding: 30px 24px 25px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(166, 54, 97, 0.17);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #d45b87;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 12px 0;
+  color: var(--deep-pink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 8vw, 3.1rem);
+  line-height: 1.08;
+}
+
+.subtitle {
+  max-width: 390px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 22px 0 12px;
+}
+
+.teddy {
+  font-size: clamp(76px, 19vw, 105px);
+  animation: cuddle 2.5s ease-in-out infinite;
+}
+
+.bouquet {
+  font-size: clamp(52px, 13vw, 76px);
+  animation: sway 2.5s ease-in-out infinite;
+}
+
+.heart {
+  font-size: clamp(35px, 9vw, 48px);
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes cuddle {
+  50% { transform: translateY(-6px) rotate(-4deg); }
+}
+
+@keyframes sway {
+  50% { transform: translateY(-4px) rotate(7deg); }
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.2); }
+}
+
+.question {
+  margin: 10px 0 18px;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.buttons {
+  min-height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 22px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  touch-action: manipulation;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(200, 62, 114, 0.2);
+}
+
+.yes-btn {
+  color: white;
+  background: linear-gradient(135deg, #ff70a1, #df477d);
+}
+
+.no-btn {
+  color: #a4466b;
+  background: #ffe2ed;
+}
+
+.message {
+  min-height: 30px;
+  margin: 16px 0 0;
+  color: var(--deep-pink);
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.footer {
+  margin: 16px 0 0;
+  color: #a77789;
+  font-size: 0.78rem;
+}
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.float-heart {
+  position: absolute;
+  bottom: -40px;
+  opacity: 0.65;
+  animation: float-up linear forwards;
+}
+
+@keyframes float-up {
+  to {
+    transform: translateY(-115vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .card { padding: 24px 16px; }
+  .scene { gap: 5px; }
+  button { padding: 12px 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
